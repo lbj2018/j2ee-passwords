@@ -44,12 +44,13 @@ public class DBHelper {
 			dd.create(sql);
 			
 			sql = "CREATE TABLE IF NOT EXISTS drk_user.t_account  ( "
-					+ "account_id TEXT NOT NULL,"
+					+ "account_id VARCHAR (50) NOT NULL,"
 					+ "user_id INT,"
 					+ "account_name TEXT NOT NULL,"
 					+ "user_name TEXT NOT NULL," 
 					+ "password TEXT NOT NULL,"
 					+ "date_created TEXT NOT NULL,"
+					+ "PRIMARY KEY (account_id),"
 					+  "FOREIGN KEY (user_id) REFERENCES drk_user.t_user(user_id)"
 					+ ")";
 			dd.create(sql);
