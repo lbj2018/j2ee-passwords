@@ -2,23 +2,23 @@ package com.derek.model;
 
 import java.sql.*;
 
-public class DbDao {
-	private static DbDao sDbDao;
+public class DBDao {
+	private static DBDao sDbDao;
 	private Connection conn;
 	private String driver;
 	private String url;
 	private String username;
 	private String pass;
 	
-	public static DbDao get() {
+	public static DBDao get() {
 		if (sDbDao == null) {			
-			sDbDao = new DbDao("com.mysql.jdbc.Driver",
+			sDbDao = new DBDao("com.mysql.jdbc.Driver",
 					"jdbc:mysql://localhost:3306", "root", "root");
 		}
 		return sDbDao;
 	}
 
-	private DbDao(String driver, String url, String username, String pass) {
+	private DBDao(String driver, String url, String username, String pass) {
 		this.driver = driver;
 		this.url = url;
 		this.username = username;
@@ -60,10 +60,20 @@ public class DbDao {
 		for (int i = 0; i < args.length; i++) {
 			pstmt.setObject(i + 1, args[i]);
 		}
-		return pstmt.executeQuery();
+		ResultSet result = pstmt.executeQuery();
+		return result;
 	}
 
 	public void modify(String sql, Object... args) throws Exception {
+		PreparedStatement pstmt = getConnection().prepareStatement(sql);
+		for (int i = 0; i < args.length; i++) {
+			pstmt.setObject(i + 1, args[i]);
+		}
+		pstmt.executeUpdate();
+		pstmt.close();
+	}
+	
+	public void update(String sql, Object... args) throws Exception {
 		PreparedStatement pstmt = getConnection().prepareStatement(sql);
 		for (int i = 0; i < args.length; i++) {
 			pstmt.setObject(i + 1, args[i]);
