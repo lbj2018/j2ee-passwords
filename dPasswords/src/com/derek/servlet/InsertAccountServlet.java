@@ -1,12 +1,12 @@
 package com.derek.servlet;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,9 @@ public class InsertAccountServlet extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {	
+		
+		request.setCharacterEncoding("GBK");
 		String userIdString = request.getParameter("user_id");
 		String accountId = request.getParameter("account_id");
 		String accountName = request.getParameter("account_name");
