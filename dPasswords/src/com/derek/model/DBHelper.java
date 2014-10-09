@@ -55,9 +55,16 @@ public class DBHelper {
 					+ ")";
 			dd.create(sql);
 			
+			
 			result = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;
@@ -77,6 +84,12 @@ public class DBHelper {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;
@@ -96,6 +109,12 @@ public class DBHelper {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;
@@ -115,6 +134,12 @@ public class DBHelper {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return password;
@@ -142,6 +167,12 @@ public class DBHelper {
  			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		return user;
@@ -160,6 +191,12 @@ public class DBHelper {
 							username, password, "", "", "", dateString);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;
@@ -176,6 +213,12 @@ public class DBHelper {
 							accountId, userId, accountName, username, password, dateCreatedString);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;
@@ -203,6 +246,12 @@ public class DBHelper {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return accounts;
@@ -218,6 +267,12 @@ public class DBHelper {
 			result = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;
@@ -233,6 +288,12 @@ public class DBHelper {
 			result = true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				dd.closeConn();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;

@@ -86,6 +86,7 @@ public class DBDao {
 		if (conn != null && !conn.isClosed()) {
 			conn.close();
 		}
+		conn = null;
 	}
 
 	public void setDriver(String driver) {
